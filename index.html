@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-09-05">
+<meta name="dcterms.date" content="2023-09-12">
 
 <title>Diagnóstico del funcionamiento del mercado eléctrico español [Borrador]</title>
 <style>
@@ -69,7 +69,7 @@ div.csl-indent {
     <h2 id="toc-title">Contenido</h2>
    
   <ul>
-  <li><a href="#evolución-de-la-demanda-de-electricidad" id="toc-evolución-de-la-demanda-de-electricidad" class="nav-link active" data-scroll-target="#evolución-de-la-demanda-de-electricidad"><span class="toc-section-number">1</span>  <strong>Evolución de la demanda de electricidad</strong></a></li>
+  <li><a href="#sec-1" id="toc-sec-1" class="nav-link active" data-scroll-target="#sec-1"><span class="toc-section-number">1</span>  <strong>Evolución de la demanda de electricidad</strong></a></li>
   <li><a href="#demanda-residual-y-requerimientos-de-flexibilidad" id="toc-demanda-residual-y-requerimientos-de-flexibilidad" class="nav-link" data-scroll-target="#demanda-residual-y-requerimientos-de-flexibilidad"><span class="toc-section-number">2</span>  <strong>Demanda residual y requerimientos de flexibilidad</strong></a></li>
   <li><a href="#mix-de-generación-y-fuentes-de-flexibilidad" id="toc-mix-de-generación-y-fuentes-de-flexibilidad" class="nav-link" data-scroll-target="#mix-de-generación-y-fuentes-de-flexibilidad"><span class="toc-section-number">3</span>  <strong>Mix de generación y fuentes de flexibilidad</strong></a></li>
   <li><a href="#tecnologías-marginales" id="toc-tecnologías-marginales" class="nav-link" data-scroll-target="#tecnologías-marginales"><span class="toc-section-number">4</span>  <strong>Tecnologías marginales</strong></a></li>
@@ -99,7 +99,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 5, 2023</p>
+      <p class="date">September 12, 2023</p>
     </div>
   </div>
   
@@ -111,9 +111,9 @@ div.csl-indent {
 
 <p>A continuación se presenta un análisis preliminar de las características del mercado eléctrico español mediante la identificación de regularidades y tendencias en las series temporales de datos sobre demanda, generación de energía eléctrica y precios de la electricidad y combustibles.</p>
 <p>Las fuentes de información utilizadas son: <a href="https://www.esios.ree.es/es?locale=es">e.sios</a>, <a href="https://www.omie.es/">OMIE</a> y <a href="https://www.mibgas.es/es">MIBGAS</a>.</p>
-<section id="evolución-de-la-demanda-de-electricidad" class="level1" data-number="1">
+<section id="sec-1" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> <strong>Evolución de la demanda de electricidad</strong></h1>
-<p>En este apartado se analiza la evolución de la demanda horaria y diaria del sistema eléctrico español. Se utilizan los datos de la demanda en barras de central en MWh presentados en <a href="https://www.esios.ree.es/">e.sios</a>. La frecuencia de los datos es horaria y diaria, y el período de análisis inicia en enero de 2014 y termina en octubre de 2022.</p>
+<p>En este apartado se analiza la evolución de la demanda horaria y diaria del sistema eléctrico español. Se utilizan los datos de la demanda en barras de central en MWh presentados en <a href="https://www.esios.ree.es/">e.sios</a>. La frecuencia de los datos es horaria y diaria, y el período de análisis inicia en enero de 2014 y termina en diciembre de 2022.</p>
 <section id="demanda-horaria" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="demanda-horaria"><span class="header-section-number">1.1</span> <strong>Demanda horaria</strong></h2>
 <p>Al descomponer la serie de tiempo de entre su tendencia, estacionalidad y componente aleatorio, encontramos que la estacionalidad de la serie se ha comportado de manera muy similar durante todo el período de análisis. En cuanto a la tendencia de la serie, ésta presentó un comportamiento al alza hasta el 2018, para después estar a la baja hasta el 2021, especialmente durante el 2020 donde sufrió una fuerte caída producto de la pandemia. Desde 2021, la tendencia de la demanda horaria fue al alza hasta inicios de 2022, pero sin recuperar los niveles pre pandemia, y en 2022 ha tenido una tendencia estable.</p>
@@ -346,12 +346,18 @@ div.csl-indent {
 <p><img src="DME_ago_files/figure-html/Figure%201-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="requerimientos-de-flexibilidad-brutos" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="requerimientos-de-flexibilidad-brutos"><span class="header-section-number">2.2</span> Requerimientos de flexibilidad brutos</h2>
 <p>Ahora calculamos las variaciones en la demanda en horizontes de una hora&nbsp;<span class="math inline">\((D_h - D_{h-1})\)</span> y cuatro horas<span class="math inline">\((D_h - D_{h-4})\)</span> .&nbsp;Estos requerimientos brutos de flexibilidad se presentan en la siguiente gráfica.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="DME_ago_files/figure-html/req%20bruto-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="requerimientos-netos-de-flexibilidad" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="requerimientos-netos-de-flexibilidad"><span class="header-section-number">2.3</span> Requerimientos netos de flexibilidad</h2>
 <p>Los requerimientos netos de flexibilidad o hueco térmico se calculan como las diferencias de <span class="math inline">\(D-N-GR\)</span> para horizontes de una y cuatro horas, donde <span class="math inline">\(D\)</span> es la demanda, <span class="math inline">\(N\)</span> es la generación nuclear y <span class="math inline">\(GR\)</span> la generación renovable no gestionable. Para los dos horizontes de tiempo se presentan los requerimientos máximos mensuales de flexibilidad netos. Desde el 2021 estos requerimientos se han incrementado levemente (ver estadísticas descriptivas).</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -566,7 +572,7 @@ div.csl-indent {
 <p><img src="DME_ago_files/figure-html/Fuente%20flexi-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Por tanto, realizamos un análisis de correlación entre los requerimientos netos de flexibilidad y la generación hidráulica gestionable, así como la correlación entre la demanda residual y la generación de las centrales de ciclos combinados. Para los dos horizontes de tiempo encontramos que en el caso de la generación hidráulica la correlación con la demanda residual estuvo a la baja hasta el 2019. En los años siguientes ha estado relativamente estable entre 0.75 y 0.8. En el caso de los ciclos combinados, hasta el 2020 la correlación estuvo al alza, para después disminuir hasta el 2021. Durante el 2021 y 2022, esta correlación se ha incrementado llegando a valores similares a los previos al 2020 (alrededor de 0.75).</p>
+<p>Por tanto, realizamos un análisis de correlación entre los requerimientos netos de flexibilidad y la generación hidráulica gestionable, así como la correlación entre la demanda residual y la generación de las centrales de ciclos combinados. Para los dos horizontes de tiempo encontramos que en el caso de la generación hidráulica la correlación con la demanda residual estuvo a la baja hasta el 2019. En los años siguientes ha estado relativamente estable entre 0.75 y 0.8. En el caso de los ciclos combinados, hasta el 2020 la correlación estuvo al alza (0.6-0.75), para después disminuir hasta el 2021 (valores menores a 0.6). Durante el 2021 y 2022, esta correlación se ha incrementado llegando a valores similares a los previos al 2020 (alrededor de 0.75).</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="DME_ago_files/figure-html/Correla-1.png" class="img-fluid" width="672"></p>
@@ -659,7 +665,7 @@ Precio_h = b_0+b_1Eolica_h+b_2PV_h+b_3Demanda_h+\epsilon_h
 \]</span></p>
 <p>donde <span class="math inline">\(Precio_h\)</span> es el precio spot en la hora <span class="math inline">\(h\)</span>, <span class="math inline">\(Eolica_h\)</span> es la generación eólica en la hora anterior <span class="math inline">\(h\)</span>, <span class="math inline">\(PV_h\)</span> es la generación solar fotovoltaica en <span class="math inline">\(h\)</span>, <span class="math inline">\(Demanda_h\)</span> es la demanda y <span class="math inline">\(\epsilon\)</span> son los errores.</p>
 <p>De esta manera, los betas <span class="math inline">\(b_1\)</span> y <span class="math inline">\(b_2\)</span> estiman en cuánto disminuyen los precios por cada megavatio hora de electricidad generado con fuentes eólicas o fotovoltaicas, respectivamente.</p>
-<p>En la siguiente gráfica se presentan el comportamiento de <span class="math inline">\(b_1\)</span> y <span class="math inline">\(b_2\)</span> estimados utilizando una ventana móvil de un año <span class="math inline">\((k)\)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Tanto en el caso de la generación eólica como la fotovoltaica, el efecto sobre los precios es negativo durante todo el período de análisis, indicando que a mayor generación con estas fuentes renovables, menores son los precios, pero el efecto es muy pequeño. El efecto de la generación eólica se hizo más grande (en valor absoluto) a finales de 2021, pero durante el 2022 el efecto se hizo pequeño y cercano a cero. Por el contrario, la generación eólica ha tenido un efecto reductor sobre el precio más alto relativo a la generación eólica la mayor parte del período, y tuvo un crecimiento del efecto más pronunciado en 2021 y 2022.</p>
+<p>En la siguiente gráfica se presentan el comportamiento de <span class="math inline">\(b_1\)</span> y <span class="math inline">\(b_2\)</span> estimados utilizando una ventana móvil de un año <span class="math inline">\((k)\)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Tanto en el caso de la generación eólica como la fotovoltaica, el efecto sobre los precios es negativo durante todo el período de análisis, indicando que a mayor generación con estas fuentes renovables, menores son los precios, pero el efecto es muy pequeño. El efecto de la generación eólica se hizo más grande (en valor absoluto) a finales de 2021, pero durante el 2022 el efecto se hizo pequeño y cercano a cero. Por el contrario, la generación fotovoltaica ha tenido un efecto reductor sobre el precio más alto relativo a la generación eólica la mayor parte del período, y tuvo un crecimiento del efecto más pronunciado en 2021 y 2022.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="DME_ago_files/figure-html/MOE-1.png" class="img-fluid" width="672"></p>
@@ -800,7 +806,7 @@ Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 </section>
 <section id="modelación-de-los-precios-con-variables-explicativas-2" class="level3" data-number="5.2.4">
 <h3 data-number="5.2.4" class="anchored" data-anchor-id="modelación-de-los-precios-con-variables-explicativas-2"><span class="header-section-number">5.2.4</span> <strong>Modelación de los precios con variables explicativas (2)</strong></h3>
-<p>Adicionalmente, estimamos un segundo modelo de regresión lineal con variables climáticas como variables explicativas, para evitar los sesgos de estimación del modelo anterior. Los datos de temperatura (grados celsius), velocidad del viento (metros por segundo) y precipitación (milímetros) son extraidos de Bloomberg, y los datos de Irradiancia <span class="math inline">\((Wh/m^2)\)</span> de <a href="https://www.soda-pro.com/">SoDa Pro</a>. La especificación del modelo es la siguiente:</p>
+<p>Adicionalmente, estimamos un segundo modelo de regresión lineal con variables climáticas como variables explicativas, para evitar los sesgos de estimación del modelo anterior. Los datos de temperatura (grados celsius), velocidad del viento (metros por segundo) y precipitación (milímetros) son extraídos de Bloomberg, y los datos de irradiancia <span class="math inline">\((Wh/m^2)\)</span> de <a href="https://www.soda-pro.com/">SoDa Pro</a>. La especificación del modelo es la siguiente:</p>
 <p><span class="math display">\[
 \begin{align}
 Precio_t= &amp; b_o+b_1Temperatura_{t-1}+b_2Viento_{t-1}+b_3Precipitacion_{t-1} \\
@@ -853,11 +859,27 @@ Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 </section>
 <section id="análisis-de-la-curva-de-pato" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> <strong>Análisis de la curva de pato</strong></h1>
+<p>En esta sección presentamos la curva de pato de los precios de electricidad siguiendo dos aproximaciones: la primera, presenta el perfil de demanda en las diferentes horas del día; y la segunda, presenta el comportamiento de los precios en las diferentes horas del día. Además, presentamos el perfil de consumo de las centrales de bombeo para analizar si éstas han cambiado su perfil de consumo en los últimos años de mayor penetración de generación renovable no gestionable.</p>
 <section id="curva-de-pato" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="curva-de-pato"><span class="header-section-number">6.1</span> <strong>Curva de pato</strong></h2>
 <p>En la siguiente gráfica interactiva presentamos la curva de pato para el perfil de demanda del sistema por horas y para los precios spot. La gráfica se puede filtrar por los años de la muestra, días laborales y no laborales, los días de la semana y las estaciones<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
  <title>Shiny App Iframe</title>  <iframe src="https://sbohorquez.shinyapps.io/CurvadePato/" style="border: none; width: 150%; height: 850px" frameborder="0"></iframe> 
-<p>Dado que los años 2021 y 2022 son atípicos por los altos niveles de los precios spot, en la siguiente gráfica presentamos el porcentaje de veces que los precios estuvieron por debajo de 10 EUR/MWh a lo largo del día el 2014, 2015, 2022 y 2023. De enero a mayo de 2023 se evidencia un comportamiento de un mayor porcentaje de precios bajos entre las 7:00 y las 16:00 horas, indicando el efecto de la mayor penetración de la generación fotovoltaica sobre los precios horarios.</p>
+<section id="perfil-de-demanda" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="perfil-de-demanda"><span class="header-section-number">6.1.1</span> Perfil de demanda</h3>
+<p>El perfil de demanda va en la misma vía de lo encontrado en la <a href="#sec-1">Sección&nbsp;1</a>: en los últimos años la demanda ha sido menor para todas las horas del día. Este comportamiento se puede deber a:</p>
+<ul>
+<li><p>2020: efecto de la pandemia</p></li>
+<li><p>2021-2022: efecto de los precios elevados de la electricidad</p></li>
+<li><p>2020-2022: mayores niveles de autoconsumo <em>behind the meter</em> y mejores niveles de eficiencia energética.</p></li>
+</ul>
+</section>
+<section id="perfil-de-precios" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="perfil-de-precios"><span class="header-section-number">6.1.2</span> Perfil de precios</h3>
+<p>Los años 2021 y 2022 presentan los precios más altos para todas las horas del día. Aunque hasta mayo de 2023 todavía los precios no alcanzan los niveles previos a la crisis energética, éstos se caracterizan por tener una disminución más pronunciada entre las 7:00 y las 16:00 horas, indicando el efecto de la mayor generación con plantas fotovoltaicas.</p>
+</section>
+<section id="comportamiento-precios-bajos" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="comportamiento-precios-bajos"><span class="header-section-number">6.1.3</span> Comportamiento precios bajos</h3>
+<p>Dado que los años 2021 y 2022 son atípicos por los altos niveles de los precios spot, en la siguiente gráfica presentamos el porcentaje de veces que los precios estuvieron por debajo de 10 EUR/MWh a lo largo del día en el 2014, 2015, 2022 y 2023. De enero a mayo de 2023 se evidencia un comportamiento de un mayor porcentaje de precios bajos entre las 7:00 y las 16:00 horas, indicando el efecto de la mayor penetración de la generación fotovoltaica sobre los precios horarios.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="DME_ago_files/figure-html/low%20price-1.png" class="img-fluid" width="672"></p>
@@ -867,16 +889,17 @@ Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 
 </div>
 </section>
+</section>
 <section id="perfil-de-consumo-de-las-centrales-de-bombeo" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="perfil-de-consumo-de-las-centrales-de-bombeo"><span class="header-section-number">6.2</span> <strong>Perfil de consumo de las centrales de bombeo</strong></h2>
-<p>La siguiente gráfica interactiva presenta el perfil de consumo de las centrales de bombeo. El 2023 se caracteriza por un mayor consumo de estas centrales entre las 7:00 y las 16:00 horas.</p>
+<p>La siguiente gráfica interactiva presenta el perfil de consumo de las centrales de bombeo. El 2023, y en menor medida el 2022 y 2021 se caracterizan por un mayor consumo de estas centrales entre las 7:00 y las 16:00 horas.</p>
 <title>Shiny App Iframe</title>  <iframe src="https://sbohorquez.shinyapps.io/Bombeo/" style="border: none; width: 150%; height: 850px" frameborder="0"></iframe> 
 </section>
 </section>
 <section id="indicador-de-almacenamiento-o-arbitraje-entre-horas-pico-y-horas-valle" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> <strong>Indicador de almacenamiento o arbitraje entre horas pico y horas valle</strong></h1>
 <p>En este apartado calculamos dos indicadores de almacenamiento o arbitraje entre horas pico y horas valle. El primero es la diferencia por día entre el precio horario máximo y el mínimo. El segundo es la diferencia entre el promedio de los cuatro precios más altos del día y el promedio de los cuatro precios más bajos.</p>
-<p>Ambos indicadores tienen un comportamiento muy similar. En el caso del primer indicador, por ejemplo, podemos ver que la diferencia entre el precio horario máximo y mínimo pasó de ser en promedio 28 EUR/MWh en 2014 a 83 EUR/MWh en 2023.</p>
+<p>Ambos indicadores tienen un comportamiento muy similar. En el caso del primer indicador, por ejemplo, podemos ver que la diferencia entre el precio horario máximo y mínimo pasó de ser en promedio 30 EUR/MWh en 2014 a 83 EUR/MWh en 2023. Además, los máximos de los indicadores también se han incrementado en los últimos años de análisis.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="DME_ago_files/figure-html/Almacenamiento-1.png" class="img-fluid" width="672"></p>
@@ -1093,7 +1116,8 @@ Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 </section>
 <section id="correlación-entre-los-precios-del-gas-natural-y-de-la-electricidad" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> <strong>Correlación entre los precios del gas natural y de la electricidad</strong></h1>
-<p>En la siguiente gráfica presentamos la correlación entre los precios del gas natural y de la electricidad. La linea azul punteada corresponde a la fecha en la que se aprobó el Real Decreto-ley 10/2022, de 13 de mayo, decreto conocido como la “excepción ibérica” o el “tope al gas”.</p>
+<p>En la siguiente gráfica presentamos la correlación entre los precios del gas natural y de la electricidad. La línea azul punteada corresponde a la fecha en la que se aprobó el Real Decreto-ley 10/2022, de 13 de mayo, decreto conocido como la “excepción ibérica” o el “tope al gas”.</p>
+<p>Previo a la medida, la correlación osciló entre 0.58 y 0.98, con un promedio de 0.82. Después de la medida, el promedio de la correlación fue de 0.62 y alcanzó un mínimo de 0.41.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="DME_ago_files/figure-html/Correlacion%20gas%20y%20electricidad-1.png" class="img-fluid" width="672"></p>
@@ -1107,7 +1131,7 @@ Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 Spark \: Spread_t = Precio \: electricidad_t - Coste\: variable_t
 \]</span></p>
 <p>donde el coste variable es igual a: <span class="math inline">\(Precio\:gas_{t}/Eficiencia \: del \: ciclo + 0.3*Precio \: carbono_{t}\)</span>. En este caso tomamos una eficiencia de 0.5.</p>
-<p>En la siguiente gráfica se presenta el Spark Spread, los precios de electricidad y los precios del gas natural. Además, se presentan las respectivas estadísticas descriptivas. El spark spread en promedio ha sido negativo, con un valor de -2.37 EUR/MWh, llegando a un minímo de casi -300 EUR/MWh en el 2022.</p>
+<p>En la siguiente gráfica se presenta el “Spark Spread”, los precios de electricidad y los precios del gas natural. Además, se presentan las respectivas estadísticas descriptivas. El “Spark Spread” en promedio ha sido negativo, con un valor de -2.37 EUR/MWh, llegando a un minímo de casi -300 EUR/MWh en el 2022.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="DME_ago_files/figure-html/SS-1.png" class="img-fluid" width="672"></p>
@@ -1180,7 +1204,7 @@ Spark \: Spread_t = Precio \: electricidad_t - Coste\: variable_t
 
 </div>
 </div>
-<p>En el histograma se puede evidenciar el sesgo negativo de la serie del Spark Spread, donde se tienen más datos a la izquierda de la media de la distribución que a la derecha. Además, la mayoría de los días este margen estuvo alrededor de los 0 EUR/MWh.</p>
+<p>En el histograma se puede evidenciar el sesgo negativo de la serie del “Spark Spread”, donde se tienen más datos a la izquierda de la media de la distribución que a la derecha. Además, la mayoría de los días este margen estuvo alrededor de los 0 EUR/MWh.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="DME_ago_files/figure-html/SS%20histo-1.png" class="img-fluid" width="672"></p>
@@ -1201,7 +1225,8 @@ Spark \: Spread_t = Precio \: electricidad_t - Coste\: variable_t
 <p><img src="DME_ago_files/figure-html/Vol%20intra-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Dado que en la sesión 1 del mercado spot intradiario se asigna un porcentaje importante de la energía total asignada en el mercado intradiario, analizamos el comportamiento de los precios de esta sesión. A continuación presentamos las estadísticas descriptivas de los precios horarios del mercado spot diario y del mercado spot intradiario de la sesión 1, así como sus respectivas gráficas. Adicionalmente, presentamos la correlación entre los dos precios. La correlación es bastante elevada, oscilando entre 0.95 y 1, con valores más cercanos a uno en los últimos años.</p>
+<p>Dado que en la sesión 1 del mercado spot intradiario se asigna un porcentaje importante de la energía total asignada en el mercado intradiario, analizamos el comportamiento de los precios de esta sesión. A continuación presentamos las estadísticas descriptivas de los precios horarios del mercado spot diario y del mercado spot intradiario de la sesión 1, así como sus respectivas gráficas. El comportamiento de los dos precios es muy similar durante todo el período de análisis.</p>
+<p>Adicionalmente, presentamos la correlación entre los dos precios. La correlación es bastante elevada, oscilando entre 0.95 y 1, con valores más cercanos a uno en los últimos años.</p>
 <div class="cell">
 <div class="cell-output-display">
 
@@ -1262,7 +1287,20 @@ Spark \: Spread_t = Precio \: electricidad_t - Coste\: variable_t
 </section>
 <section id="coste-de-los-servicios-de-ajuste" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="coste-de-los-servicios-de-ajuste"><span class="header-section-number">10.2</span> Coste de los servicios de ajuste</h2>
-<p>Tomando los datos de <a href="https://www.ree.es/es/datos/mercados/componentes-precio-energia-cierre-desglose">REE</a> graficamos la evolución de los costes de servicio de ajuste mensuales desde 2014 hasta agosto de 2023. Además, presentamos el porcentaje del estos costes del total del precio de cierre de la energía.</p>
+<p>Tomando los datos de <a href="https://www.ree.es/es/datos/mercados/componentes-precio-energia-cierre-desglose">REE</a> graficamos la evolución de los costes de servicio de ajuste mensuales desde 2014 hasta agosto de 2023. Además, presentamos el porcentaje de estos costes del total del precio de cierre de la energía.</p>
+<p>Los costes de servicios de ajuste están compuestos por:</p>
+<ul>
+<li><p>Restricciones técnicas PDBF</p></li>
+<li><p>Banda de regulación secundaria</p></li>
+<li><p>Restricciones técnicas en tiempo real</p></li>
+<li><p>Incumplimiento de energía de balance</p></li>
+<li><p>Coste de desvíos</p></li>
+<li><p>Saldo desvíos</p></li>
+<li><p>Control de factor de potencia</p></li>
+<li><p>Saldo PO 14.6</p></li>
+</ul>
+<p>El coste de los servicios de ajuste ha oscilado entre 0.8 y 13.2 EUR/MWh, con un promedio de 4.1 EUR/MWh. Desde el 2020, este rubro ha tenido un comportamiento al alza, alcanzando el máximo de la serie en enero de 2023.</p>
+<p>En cuanto al porcentaje del coste de los servicios de ajuste sobre el precio total, éste ha estado entre el 1.4% y el 23.4%, con un promedio del 6%. El máximo porcentaje se presentó en febrero de 2014, y los siguientes porcentajes más altos en abril 2020 y en enero de 2023.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="DME_ago_files/figure-html/Desvios-1.png" class="img-fluid" width="672"></p>
