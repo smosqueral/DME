@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-10-23">
+
+<title>Diagnóstico del funcionamiento del mercado eléctrico español [Borrador]</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="DME_oct_files/libs/clipboard/clipboard.min.js"></script>
+<script src="DME_oct_files/libs/quarto-html/quarto.js"></script>
+<script src="DME_oct_files/libs/quarto-html/popper.min.js"></script>
+<script src="DME_oct_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="DME_oct_files/libs/quarto-html/anchor.min.js"></script>
+<link href="DME_oct_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="DME_oct_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="DME_oct_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="DME_oct_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="DME_oct_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+<script src="DME_oct_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="DME_oct_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+  <li><a href="#sec-1" id="toc-sec-1" class="nav-link active" data-scroll-target="#sec-1"><span class="toc-section-number">1</span>  <strong>Evolución de la demanda de electricidad</strong></a>
+  <ul class="collapse">
+  <li><a href="#demanda-horaria" id="toc-demanda-horaria" class="nav-link" data-scroll-target="#demanda-horaria"><span class="toc-section-number">1.1</span>  <strong>Demanda horaria</strong></a></li>
+  <li><a href="#demanda-diaria" id="toc-demanda-diaria" class="nav-link" data-scroll-target="#demanda-diaria"><span class="toc-section-number">1.2</span>  <strong>Demanda diaria</strong></a></li>
+  </ul></li>
+  <li><a href="#demanda-residual-y-requerimientos-de-flexibilidad" id="toc-demanda-residual-y-requerimientos-de-flexibilidad" class="nav-link" data-scroll-target="#demanda-residual-y-requerimientos-de-flexibilidad"><span class="toc-section-number">2</span>  <strong>Demanda residual y requerimientos de flexibilidad</strong></a>
+  <ul class="collapse">
+  <li><a href="#generación-no-gestionable" id="toc-generación-no-gestionable" class="nav-link" data-scroll-target="#generación-no-gestionable"><span class="toc-section-number">2.1</span>  Generación no gestionable</a></li>
+  <li><a href="#requerimientos-de-flexibilidad-brutos" id="toc-requerimientos-de-flexibilidad-brutos" class="nav-link" data-scroll-target="#requerimientos-de-flexibilidad-brutos"><span class="toc-section-number">2.2</span>  Requerimientos de flexibilidad brutos</a></li>
+  <li><a href="#requerimientos-netos-de-flexibilidad" id="toc-requerimientos-netos-de-flexibilidad" class="nav-link" data-scroll-target="#requerimientos-netos-de-flexibilidad"><span class="toc-section-number">2.3</span>  Requerimientos netos de flexibilidad</a></li>
+  </ul></li>
+  <li><a href="#mix-de-generación-y-fuentes-de-flexibilidad" id="toc-mix-de-generación-y-fuentes-de-flexibilidad" class="nav-link" data-scroll-target="#mix-de-generación-y-fuentes-de-flexibilidad"><span class="toc-section-number">3</span>  <strong>Mix de generación y fuentes de flexibilidad</strong></a></li>
+  <li><a href="#tecnologías-marginales" id="toc-tecnologías-marginales" class="nav-link" data-scroll-target="#tecnologías-marginales"><span class="toc-section-number">4</span>  <strong>Tecnologías marginales</strong></a></li>
+  <li><a href="#evolución-de-los-precios-spot" id="toc-evolución-de-los-precios-spot" class="nav-link" data-scroll-target="#evolución-de-los-precios-spot"><span class="toc-section-number">5</span>  <strong>Evolución de los precios spot</strong></a>
+  <ul class="collapse">
+  <li><a href="#precios-horarios" id="toc-precios-horarios" class="nav-link" data-scroll-target="#precios-horarios"><span class="toc-section-number">5.1</span>  Precios horarios</a>
+  <ul class="collapse">
+  <li><a href="#merit-order-effect-moe" id="toc-merit-order-effect-moe" class="nav-link" data-scroll-target="#merit-order-effect-moe"><span class="toc-section-number">5.1.1</span>  <em>Merit-order effect</em> (MOE)</a></li>
+  </ul></li>
+  <li><a href="#precios-diarios" id="toc-precios-diarios" class="nav-link" data-scroll-target="#precios-diarios"><span class="toc-section-number">5.2</span>  Precios diarios</a>
+  <ul class="collapse">
+  <li><a href="#prueba-de-quiebres-estructurales" id="toc-prueba-de-quiebres-estructurales" class="nav-link" data-scroll-target="#prueba-de-quiebres-estructurales"><span class="toc-section-number">5.2.1</span>  <strong>Prueba de quiebres estructurales</strong></a></li>
+  <li><a href="#modelación-de-la-media-y-volatilidad" id="toc-modelación-de-la-media-y-volatilidad" class="nav-link" data-scroll-target="#modelación-de-la-media-y-volatilidad"><span class="toc-section-number">5.2.2</span>  <strong>Modelación de la media y volatilidad</strong></a></li>
+  <li><a href="#modelación-de-los-precios-con-variables-explicativas-1" id="toc-modelación-de-los-precios-con-variables-explicativas-1" class="nav-link" data-scroll-target="#modelación-de-los-precios-con-variables-explicativas-1"><span class="toc-section-number">5.2.3</span>  <strong>Modelación de los precios con variables explicativas (1)</strong></a></li>
+  <li><a href="#modelación-de-los-precios-con-variables-explicativas-2" id="toc-modelación-de-los-precios-con-variables-explicativas-2" class="nav-link" data-scroll-target="#modelación-de-los-precios-con-variables-explicativas-2"><span class="toc-section-number">5.2.4</span>  <strong>Modelación de los precios con variables explicativas (2)</strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#análisis-de-la-curva-de-pato" id="toc-análisis-de-la-curva-de-pato" class="nav-link" data-scroll-target="#análisis-de-la-curva-de-pato"><span class="toc-section-number">6</span>  <strong>Análisis de la curva de pato</strong></a>
+  <ul class="collapse">
+  <li><a href="#curva-de-pato" id="toc-curva-de-pato" class="nav-link" data-scroll-target="#curva-de-pato"><span class="toc-section-number">6.1</span>  <strong>Curva de pato</strong></a>
+  <ul class="collapse">
+  <li><a href="#perfil-de-demanda" id="toc-perfil-de-demanda" class="nav-link" data-scroll-target="#perfil-de-demanda"><span class="toc-section-number">6.1.1</span>  Perfil de demanda</a></li>
+  <li><a href="#perfil-de-precios" id="toc-perfil-de-precios" class="nav-link" data-scroll-target="#perfil-de-precios"><span class="toc-section-number">6.1.2</span>  Perfil de precios</a></li>
+  <li><a href="#comportamiento-precios-bajos" id="toc-comportamiento-precios-bajos" class="nav-link" data-scroll-target="#comportamiento-precios-bajos"><span class="toc-section-number">6.1.3</span>  Comportamiento precios bajos</a></li>
+  </ul></li>
+  <li><a href="#perfil-de-consumo-de-las-centrales-de-bombeo" id="toc-perfil-de-consumo-de-las-centrales-de-bombeo" class="nav-link" data-scroll-target="#perfil-de-consumo-de-las-centrales-de-bombeo"><span class="toc-section-number">6.2</span>  <strong>Perfil de consumo de las centrales de bombeo</strong></a></li>
+  </ul></li>
+  <li><a href="#indicador-de-almacenamiento-o-arbitraje-entre-horas-pico-y-horas-valle" id="toc-indicador-de-almacenamiento-o-arbitraje-entre-horas-pico-y-horas-valle" class="nav-link" data-scroll-target="#indicador-de-almacenamiento-o-arbitraje-entre-horas-pico-y-horas-valle"><span class="toc-section-number">7</span>  <strong>Indicador de almacenamiento o arbitraje entre horas pico y horas valle</strong></a></li>
+  <li><a href="#correlación-entre-los-precios-del-gas-natural-y-de-la-electricidad" id="toc-correlación-entre-los-precios-del-gas-natural-y-de-la-electricidad" class="nav-link" data-scroll-target="#correlación-entre-los-precios-del-gas-natural-y-de-la-electricidad"><span class="toc-section-number">8</span>  <strong>Correlación entre los precios del gas natural y de la electricidad</strong></a></li>
+  <li><a href="#evolución-del-spark-spread" id="toc-evolución-del-spark-spread" class="nav-link" data-scroll-target="#evolución-del-spark-spread"><span class="toc-section-number">9</span>  <strong>Evolución del “Spark Spread”</strong></a></li>
+  <li><a href="#relación-entre-el-precio-spot-diario-y-los-servicios-complementarios" id="toc-relación-entre-el-precio-spot-diario-y-los-servicios-complementarios" class="nav-link" data-scroll-target="#relación-entre-el-precio-spot-diario-y-los-servicios-complementarios"><span class="toc-section-number">10</span>  <strong>Relación entre el precio spot diario y los servicios complementarios</strong></a>
+  <ul class="collapse">
+  <li><a href="#mercado-spot-intradiario" id="toc-mercado-spot-intradiario" class="nav-link" data-scroll-target="#mercado-spot-intradiario"><span class="toc-section-number">10.1</span>  Mercado spot intradiario</a></li>
+  <li><a href="#coste-de-los-servicios-de-ajuste" id="toc-coste-de-los-servicios-de-ajuste" class="nav-link" data-scroll-target="#coste-de-los-servicios-de-ajuste"><span class="toc-section-number">10.2</span>  Coste de los servicios de ajuste</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Diagnóstico del funcionamiento del mercado eléctrico español [Borrador]</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 23, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>A continuación se presenta un análisis preliminar de las características del mercado eléctrico español mediante la identificación de regularidades y tendencias en las series temporales de datos sobre demanda, generación de energía eléctrica y precios de la electricidad y combustibles.</p>
+<p>Las fuentes de información utilizadas son: <a href="https://www.esios.ree.es/es?locale=es">e.sios</a>, <a href="https://www.omie.es/">OMIE</a> y <a href="https://www.mibgas.es/es">MIBGAS</a>.</p>
+<section id="sec-1" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> <strong>Evolución de la demanda de electricidad</strong></h1>
+<p>En este apartado se analiza la evolución de la demanda horaria y diaria del sistema eléctrico español. Se utilizan los datos de la demanda en barras de central en MWh presentados en <a href="https://www.esios.ree.es/">e.sios</a>. La frecuencia de los datos es horaria y diaria, y el período de análisis inicia en enero de 2014 y termina en diciembre de 2022.</p>
+<section id="demanda-horaria" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="demanda-horaria"><span class="header-section-number">1.1</span> <strong>Demanda horaria</strong></h2>
+<p>Al descomponer la serie de tiempo de entre su tendencia, estacionalidad y componente aleatorio, encontramos que la estacionalidad de la serie se ha comportado de manera muy similar durante todo el período de análisis. En cuanto a la tendencia de la serie, ésta presentó un comportamiento al alza hasta el 2018, para después estar a la baja hasta el 2021, especialmente durante el 2020 donde sufrió una fuerte caída producto de la pandemia. Desde 2021, la tendencia de la demanda horaria fue al alza hasta inicios de 2022, pero sin recuperar los niveles pre pandemia, y en 2022 ha tenido una tendencia estable.</p>
+<p>La reciente menor tendencia de la demanda puede indicar mayores niveles de autoconsumo no registrados en la demanda del sistema.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Descomposicion%20dda%20hora-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Al analizar las estadísticas descriptivas de la demanda horaria por año, encontramos, al igual que con la descomposición de la serie, la tendencia al alza de la demanda hasta el 2018, la caída en 2019 y 2020 y la recuperación en 2021 que no alcanza los niveles previos a la pandemia.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 12px; width: auto !important; ">
+<caption style="font-size: initial !important;">Estadísticas descriptivas demanda horaria</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> 2014 </th>
+   <th style="text-align:right;"> 2015 </th>
+   <th style="text-align:right;"> 2016 </th>
+   <th style="text-align:right;"> 2017 </th>
+   <th style="text-align:right;"> 2018 </th>
+   <th style="text-align:right;"> 2019 </th>
+   <th style="text-align:right;"> 2020 </th>
+   <th style="text-align:right;"> 2021 </th>
+   <th style="text-align:right;"> 2022 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mínimo </td>
+   <td style="text-align:right;"> 18,075.92 </td>
+   <td style="text-align:right;"> 17,739.48 </td>
+   <td style="text-align:right;"> 17,693.56 </td>
+   <td style="text-align:right;"> 18,847.19 </td>
+   <td style="text-align:right;"> 17,955.34 </td>
+   <td style="text-align:right;"> 17,531.95 </td>
+   <td style="text-align:right;"> 16,490.59 </td>
+   <td style="text-align:right;"> 17,351.85 </td>
+   <td style="text-align:right;"> 15,815.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Media </td>
+   <td style="text-align:right;"> 27,709.57 </td>
+   <td style="text-align:right;"> 28,275.94 </td>
+   <td style="text-align:right;"> 28,396.68 </td>
+   <td style="text-align:right;"> 28,807.85 </td>
+   <td style="text-align:right;"> 28,919.15 </td>
+   <td style="text-align:right;"> 28,424.09 </td>
+   <td style="text-align:right;"> 26,927.06 </td>
+   <td style="text-align:right;"> 27,652.17 </td>
+   <td style="text-align:right;"> 26,877.97 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Máximo </td>
+   <td style="text-align:right;"> 38,673.11 </td>
+   <td style="text-align:right;"> 40,182.98 </td>
+   <td style="text-align:right;"> 39,997.31 </td>
+   <td style="text-align:right;"> 40,920.85 </td>
+   <td style="text-align:right;"> 40,608.00 </td>
+   <td style="text-align:right;"> 40,068.45 </td>
+   <td style="text-align:right;"> 39,993.48 </td>
+   <td style="text-align:right;"> 41,474.55 </td>
+   <td style="text-align:right;"> 37,973.92 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D. Est </td>
+   <td style="text-align:right;"> 4,499.15 </td>
+   <td style="text-align:right;"> 4,694.20 </td>
+   <td style="text-align:right;"> 4,474.26 </td>
+   <td style="text-align:right;"> 4,573.81 </td>
+   <td style="text-align:right;"> 4,618.02 </td>
+   <td style="text-align:right;"> 4,502.87 </td>
+   <td style="text-align:right;"> 4,644.76 </td>
+   <td style="text-align:right;"> 4,213.85 </td>
+   <td style="text-align:right;"> 4,305.82 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sesgo </td>
+   <td style="text-align:right;"> 0.02 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> -0.02 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.03 </td>
+   <td style="text-align:right;"> 0.06 </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.12 </td>
+   <td style="text-align:right;"> 0.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curtosis </td>
+   <td style="text-align:right;"> -1.00 </td>
+   <td style="text-align:right;"> -0.81 </td>
+   <td style="text-align:right;"> -1.03 </td>
+   <td style="text-align:right;"> -0.91 </td>
+   <td style="text-align:right;"> -0.99 </td>
+   <td style="text-align:right;"> -0.88 </td>
+   <td style="text-align:right;"> -0.78 </td>
+   <td style="text-align:right;"> -0.56 </td>
+   <td style="text-align:right;"> -0.75 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="demanda-diaria" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="demanda-diaria"><span class="header-section-number">1.2</span> <strong>Demanda diaria</strong></h2>
+<p>La descomposición de la serie de la demanda diaria y las estadísticas descriptivas por año exhiben el mismo comportamiento que los datos horarios.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Descomposicion%20dda%20diaria-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 12px; width: auto !important; ">
+<caption style="font-size: initial !important;">Estadísticas descriptivas demanda diaria</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> 2014 </th>
+   <th style="text-align:right;"> 2015 </th>
+   <th style="text-align:right;"> 2016 </th>
+   <th style="text-align:right;"> 2017 </th>
+   <th style="text-align:right;"> 2018 </th>
+   <th style="text-align:right;"> 2019 </th>
+   <th style="text-align:right;"> 2020 </th>
+   <th style="text-align:right;"> 2021 </th>
+   <th style="text-align:right;"> 2022 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mínimo </td>
+   <td style="text-align:right;"> 507,590.48 </td>
+   <td style="text-align:right;"> 517,685.60 </td>
+   <td style="text-align:right;"> 514,939.89 </td>
+   <td style="text-align:right;"> 522,066.41 </td>
+   <td style="text-align:right;"> 530,279.72 </td>
+   <td style="text-align:right;"> 506,635.69 </td>
+   <td style="text-align:right;"> 473,012.99 </td>
+   <td style="text-align:right;"> 512,584.54 </td>
+   <td style="text-align:right;"> 457,323.84 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Media </td>
+   <td style="text-align:right;"> 665,388.47 </td>
+   <td style="text-align:right;"> 678,992.38 </td>
+   <td style="text-align:right;"> 681,888.81 </td>
+   <td style="text-align:right;"> 691,764.79 </td>
+   <td style="text-align:right;"> 694,434.42 </td>
+   <td style="text-align:right;"> 682,551.94 </td>
+   <td style="text-align:right;"> 646,609.47 </td>
+   <td style="text-align:right;"> 664,017.70 </td>
+   <td style="text-align:right;"> 645,341.88 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Máximo </td>
+   <td style="text-align:right;"> 796,146.18 </td>
+   <td style="text-align:right;"> 821,407.70 </td>
+   <td style="text-align:right;"> 817,093.32 </td>
+   <td style="text-align:right;"> 843,152.56 </td>
+   <td style="text-align:right;"> 836,337.85 </td>
+   <td style="text-align:right;"> 823,153.42 </td>
+   <td style="text-align:right;"> 820,108.82 </td>
+   <td style="text-align:right;"> 834,692.86 </td>
+   <td style="text-align:right;"> 786,683.30 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D. Est </td>
+   <td style="text-align:right;"> 62,397.10 </td>
+   <td style="text-align:right;"> 69,137.63 </td>
+   <td style="text-align:right;"> 61,417.08 </td>
+   <td style="text-align:right;"> 66,401.74 </td>
+   <td style="text-align:right;"> 65,518.64 </td>
+   <td style="text-align:right;"> 65,124.48 </td>
+   <td style="text-align:right;"> 74,732.47 </td>
+   <td style="text-align:right;"> 61,410.49 </td>
+   <td style="text-align:right;"> 67,085.58 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sesgo </td>
+   <td style="text-align:right;"> -0.36 </td>
+   <td style="text-align:right;"> -0.07 </td>
+   <td style="text-align:right;"> -0.43 </td>
+   <td style="text-align:right;"> -0.28 </td>
+   <td style="text-align:right;"> -0.31 </td>
+   <td style="text-align:right;"> -0.21 </td>
+   <td style="text-align:right;"> -0.16 </td>
+   <td style="text-align:right;"> -0.07 </td>
+   <td style="text-align:right;"> -0.23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curtosis </td>
+   <td style="text-align:right;"> -0.45 </td>
+   <td style="text-align:right;"> -0.46 </td>
+   <td style="text-align:right;"> -0.56 </td>
+   <td style="text-align:right;"> -0.42 </td>
+   <td style="text-align:right;"> -0.66 </td>
+   <td style="text-align:right;"> -0.48 </td>
+   <td style="text-align:right;"> -0.70 </td>
+   <td style="text-align:right;"> 0.08 </td>
+   <td style="text-align:right;"> -0.34 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Por último, utilizamos un modelo de series de tiempo SARIMA (<em>Seasonal Autoregressive Integrated Moving Average</em>) que busca modelar la demanda diaria teniendo en cuenta efectos estacionales y el comportamiento pasado de la serie. La forma del modelo demuestra altos efectos estacionales y predice el comportamiento de la demanda en los próximos 30 días en azul.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/SARIMA-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="demanda-residual-y-requerimientos-de-flexibilidad" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> <strong>Demanda residual y requerimientos de flexibilidad</strong></h1>
+<section id="generación-no-gestionable" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="generación-no-gestionable"><span class="header-section-number">2.1</span> Generación no gestionable</h2>
+<p>Para analizar el comportamiento de los requerimientos de flexibilidad del sistema eléctrico, inicamos calculando la generación renovable no gestionable horaria <span class="math inline">\((GR)\)</span>, que es igual a <strong>la suma de la generación eólica, la solar fotovoltaica y la hidráulica fluyente</strong> y la analizamos para horizontes de tiempo de una hora <span class="math inline">\((GR_h - GR_{h-1})\)</span> y de cuatro horas <span class="math inline">\((GR_{h} - GR_{h-4})\)</span>. Esta variación de la aportación de las energías renovables no gestionables puede generar mayor necesidad de flexibilidad en el sistema.</p>
+<p>La variación máxima mensual en la generación renovable no gestionable se presenta en la siguiente gráfica. Tanto en horizontes de una y cuatro horas, la variación en la aportación de la <span class="math inline">\(GR\)</span> ha estado al alza desde finales del 2019.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Figure%201-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Para cuantificar la magnitud de este incremento en la variación en la aportación de la <span class="math inline">\(GR\)</span> también calculamos las veces y la cuantía en MWh que durante cada mes la variación es mayor al mínimo de los máximos calculados en la gráfica anterior. Es decir, identificamos los casos en los que la variación de la generación renovable no gestionable es mayor a 1,060 MWh en el caso de horizontes de tiempo de una hora, y 3,432 MWh en el caso de horizontes de tiempo de cuatro horas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Figure%201a-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Figure%201a-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="requerimientos-de-flexibilidad-brutos" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="requerimientos-de-flexibilidad-brutos"><span class="header-section-number">2.2</span> Requerimientos de flexibilidad brutos</h2>
+<p>Ahora calculamos las variaciones en la demanda en horizontes de una hora&nbsp;<span class="math inline">\((D_h - D_{h-1})\)</span> y cuatro horas<span class="math inline">\((D_h - D_{h-4})\)</span> .&nbsp;Estos requerimientos brutos de flexibilidad se presentan en la siguiente gráfica.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/req%20bruto-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Para cuantificar la magnitud de estos requerimientos brutos de flexibilidad también calculamos las veces y la cuantía en MWh que durante cada mes el requerimiento es mayor al mínimo de los máximos calculados en la gráfica anterior. Es decir, identificamos los casos en los que el requerimiento bruto de flexibilidad es mayor a 2,208 MWh en el caso de horizontes de tiempo de una hora, y 6,603 MWh en el caso de horizontes de tiempo de cuatro horas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/req%20bruto2-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/req%20bruto2-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="requerimientos-netos-de-flexibilidad" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="requerimientos-netos-de-flexibilidad"><span class="header-section-number">2.3</span> Requerimientos netos de flexibilidad</h2>
+<p>Los requerimientos netos de flexibilidad o hueco térmico se calculan como las diferencias de <span class="math inline">\(D-N-GR\)</span> para horizontes de una y cuatro horas, donde <span class="math inline">\(D\)</span> es la demanda, <span class="math inline">\(N\)</span> es la generación nuclear y <span class="math inline">\(GR\)</span> la generación renovable no gestionable. Para los dos horizontes de tiempo se presentan los requerimientos máximos mensuales de flexibilidad netos. Desde el 2021 estos requerimientos se han incrementado levemente (ver estadísticas descriptivas).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/req%20neto-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 12px; width: auto !important; ">
+<caption style="font-size: initial !important;">Estadísticas descriptivas requerimientos máximos de flexibilidad netos en el sistema eléctrico en horizontes de una hora</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> 2014 </th>
+   <th style="text-align:right;"> 2015 </th>
+   <th style="text-align:right;"> 2016 </th>
+   <th style="text-align:right;"> 2017 </th>
+   <th style="text-align:right;"> 2018 </th>
+   <th style="text-align:right;"> 2019 </th>
+   <th style="text-align:right;"> 2020 </th>
+   <th style="text-align:right;"> 2021 </th>
+   <th style="text-align:right;"> 2022 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mínimo </td>
+   <td style="text-align:right;"> 2,731.31 </td>
+   <td style="text-align:right;"> 2,899.70 </td>
+   <td style="text-align:right;"> 2,611.69 </td>
+   <td style="text-align:right;"> 2,557.51 </td>
+   <td style="text-align:right;"> 2,588.85 </td>
+   <td style="text-align:right;"> 2,517.14 </td>
+   <td style="text-align:right;"> 2,568.50 </td>
+   <td style="text-align:right;"> 3,093.50 </td>
+   <td style="text-align:right;"> 4,157.82 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Media </td>
+   <td style="text-align:right;"> 4,121.89 </td>
+   <td style="text-align:right;"> 4,188.68 </td>
+   <td style="text-align:right;"> 4,144.73 </td>
+   <td style="text-align:right;"> 4,155.45 </td>
+   <td style="text-align:right;"> 4,214.77 </td>
+   <td style="text-align:right;"> 4,143.82 </td>
+   <td style="text-align:right;"> 4,061.14 </td>
+   <td style="text-align:right;"> 4,385.92 </td>
+   <td style="text-align:right;"> 5,142.29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Máximo </td>
+   <td style="text-align:right;"> 5,514.97 </td>
+   <td style="text-align:right;"> 5,427.68 </td>
+   <td style="text-align:right;"> 5,561.29 </td>
+   <td style="text-align:right;"> 5,811.31 </td>
+   <td style="text-align:right;"> 5,644.70 </td>
+   <td style="text-align:right;"> 5,604.82 </td>
+   <td style="text-align:right;"> 5,791.40 </td>
+   <td style="text-align:right;"> 5,517.66 </td>
+   <td style="text-align:right;"> 6,161.87 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D. Est </td>
+   <td style="text-align:right;"> 1,004.26 </td>
+   <td style="text-align:right;"> 927.45 </td>
+   <td style="text-align:right;"> 1,009.21 </td>
+   <td style="text-align:right;"> 1,159.71 </td>
+   <td style="text-align:right;"> 1,085.05 </td>
+   <td style="text-align:right;"> 1,082.30 </td>
+   <td style="text-align:right;"> 997.71 </td>
+   <td style="text-align:right;"> 763.30 </td>
+   <td style="text-align:right;"> 601.24 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sesgo </td>
+   <td style="text-align:right;"> -0.17 </td>
+   <td style="text-align:right;"> -0.01 </td>
+   <td style="text-align:right;"> -0.21 </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> -0.23 </td>
+   <td style="text-align:right;"> -0.13 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> -0.22 </td>
+   <td style="text-align:right;"> 0.08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curtosis </td>
+   <td style="text-align:right;"> -1.72 </td>
+   <td style="text-align:right;"> -1.72 </td>
+   <td style="text-align:right;"> -1.39 </td>
+   <td style="text-align:right;"> -1.70 </td>
+   <td style="text-align:right;"> -1.63 </td>
+   <td style="text-align:right;"> -1.60 </td>
+   <td style="text-align:right;"> -1.35 </td>
+   <td style="text-align:right;"> -1.27 </td>
+   <td style="text-align:right;"> -1.15 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 12px; width: auto !important; ">
+<caption style="font-size: initial !important;">Estadísticas descriptivas requerimientos máximos de flexibilidad netos en el sistema eléctrico en horizontes de cuatro horas</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> 2014 </th>
+   <th style="text-align:right;"> 2015 </th>
+   <th style="text-align:right;"> 2016 </th>
+   <th style="text-align:right;"> 2017 </th>
+   <th style="text-align:right;"> 2018 </th>
+   <th style="text-align:right;"> 2019 </th>
+   <th style="text-align:right;"> 2020 </th>
+   <th style="text-align:right;"> 2021 </th>
+   <th style="text-align:right;"> 2022 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mínimo </td>
+   <td style="text-align:right;"> 8,428.58 </td>
+   <td style="text-align:right;"> 8,868.48 </td>
+   <td style="text-align:right;"> 8,342.45 </td>
+   <td style="text-align:right;"> 8,988.33 </td>
+   <td style="text-align:right;"> 8,734.65 </td>
+   <td style="text-align:right;"> 7,793.31 </td>
+   <td style="text-align:right;"> 7,386.97 </td>
+   <td style="text-align:right;"> 8,818.16 </td>
+   <td style="text-align:right;"> 11,257.86 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Media </td>
+   <td style="text-align:right;"> 10,570.17 </td>
+   <td style="text-align:right;"> 11,099.89 </td>
+   <td style="text-align:right;"> 10,777.96 </td>
+   <td style="text-align:right;"> 11,244.52 </td>
+   <td style="text-align:right;"> 11,468.46 </td>
+   <td style="text-align:right;"> 10,801.27 </td>
+   <td style="text-align:right;"> 10,603.83 </td>
+   <td style="text-align:right;"> 11,597.77 </td>
+   <td style="text-align:right;"> 13,320.26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Máximo </td>
+   <td style="text-align:right;"> 13,242.05 </td>
+   <td style="text-align:right;"> 13,793.00 </td>
+   <td style="text-align:right;"> 13,906.19 </td>
+   <td style="text-align:right;"> 14,949.91 </td>
+   <td style="text-align:right;"> 14,348.45 </td>
+   <td style="text-align:right;"> 14,004.28 </td>
+   <td style="text-align:right;"> 14,237.04 </td>
+   <td style="text-align:right;"> 13,475.20 </td>
+   <td style="text-align:right;"> 15,705.99 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D. Est </td>
+   <td style="text-align:right;"> 1,721.76 </td>
+   <td style="text-align:right;"> 1,571.75 </td>
+   <td style="text-align:right;"> 1,796.25 </td>
+   <td style="text-align:right;"> 2,123.63 </td>
+   <td style="text-align:right;"> 2,207.15 </td>
+   <td style="text-align:right;"> 2,046.45 </td>
+   <td style="text-align:right;"> 1,910.94 </td>
+   <td style="text-align:right;"> 1,420.62 </td>
+   <td style="text-align:right;"> 1,372.56 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sesgo </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.33 </td>
+   <td style="text-align:right;"> 0.22 </td>
+   <td style="text-align:right;"> 0.41 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> -0.66 </td>
+   <td style="text-align:right;"> 0.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curtosis </td>
+   <td style="text-align:right;"> -1.76 </td>
+   <td style="text-align:right;"> -1.35 </td>
+   <td style="text-align:right;"> -1.46 </td>
+   <td style="text-align:right;"> -1.48 </td>
+   <td style="text-align:right;"> -1.79 </td>
+   <td style="text-align:right;"> -1.53 </td>
+   <td style="text-align:right;"> -0.94 </td>
+   <td style="text-align:right;"> -0.88 </td>
+   <td style="text-align:right;"> -1.37 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Por último, para cuantificar la magnitud de estos requerimientos netos de flexibilidad también calculamos las veces y la cuantía en MWh que durante cada mes el requerimiento es mayor al mínimo de los máximos calculados en la gráfica anterior. Es decir, identificamos los casos en los que el requerimiento neto de flexibilidad es mayor a 2,517 MWh en el caso de horizontes de tiempo de una hora, y 7,387 MWh en el caso de horizontes de tiempo de cuatro horas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/req%20neto2-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/req%20neto2-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="mix-de-generación-y-fuentes-de-flexibilidad" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> <strong>Mix de generación y fuentes de flexibilidad</strong></h1>
+<p>Para analizar la evolución de las fuentes de generación que aportan la flexibilidad requerida por el sistema, calculamos las variaciones en las aportaciones de la generación hidráulica gestionable <span class="math inline">\((H)\)</span>, la generación de los ciclos combinados <span class="math inline">\((CC)\)</span> y la generación de centrales térmicas de carbón <span class="math inline">\((C)\)</span>. Para las tres tecnologías calculamos las variaciones en la generación en horizontes de tiempo de una y cuatro horas.</p>
+<p>En las siguientes gráficas se presentan las máximas rampas positivas mensuales de las tres fuentes de flexibilidad calculadas y los requerimientos máximos de flexibilidad (demanda residual). Tanto en los horizontes de una hora como de cuatro horas, es evidente la disminución en el aporte de las centrales de carbón. Sin embargo, no es claro gráficamente la evolución de los aportes de la generación hidráulica y de los ciclos combinados.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Fuente%20flexi-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Fuente%20flexi-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Calculamos por tanto la evolución de las fuentes de flexibilidad graficando las máximas rampas positivas mensuales para las centrales hidráulicas, de ciclos combinados y de carbón como proporción de la demanda residual.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Flexi%20proporcion%20dda-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Flexi%20proporcion%20dda-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Adicionalmente, graficamos la evolución ,mensual de la generación con las tres fuentes de flexibilidad.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Generacion%20H,%20CC,%20C-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Por último, realizamos un análisis de correlación entre los requerimientos netos de flexibilidad y la generación hidráulica gestionable, así como la correlación entre la demanda residual y la generación de las centrales de ciclos combinados.</p>
+<p>Para los dos horizontes de tiempo encontramos que en el caso de la generación hidráulica la correlación con la demanda residual estuvo a la baja hasta el 2019. En los años siguientes ha estado relativamente estable entre 0.75 y 0.8. Este comportamiento de la correlación es de esperarse dado que la generación hidráulica tiene un límite y la potencia instalada ha estado estable.</p>
+<p>En el caso de los ciclos combinados, hasta el 2020 la correlación estuvo al alza (0.6-0.75), compensando la disminución en el aporte de las centrales de carbón. Después de 2020 hasta inicios del 2021, la correlación estuvo a la baja (valores menores a 0.6), indicando un efecto de la pandemia y deterioro del “Spark Spread”. Durante el 2021 y 2022, esta correlación se ha incrementado llegando a valores similares a los previos al 2020 (alrededor de 0.75).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Correla-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Correla2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="tecnologías-marginales" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> <strong>Tecnologías marginales</strong></h1>
+<p>Utilizando los datos disponibles en <a href="https://www.omie.es/">OMIE</a> calculamos el porcentaje de horas que cada tecnología es marginal para los años 2021 a 2023. En el 2021, la generación hidráulica es la que en mayor porcentaje marcó el precio de la electricidad. En 2022, el porcentaje de horas en que los ciclos combinados marcan el precio se incrementó. De enero a junio de 2023, el comportamiento es similar al de 2021, pero con una mayor participación de la generación renovable, cogeneración y residuos como tecnologías marginales.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Marginal-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Marginal-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Marginal-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 12px; width: auto !important; ">
+<caption style="font-size: initial !important;">Promedio del porcentaje de horas en las que marca el precio cada tecnología por año</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> 2021 </th>
+   <th style="text-align:right;"> 2022 </th>
+   <th style="text-align:right;"> 2023 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Bombeo generación </td>
+   <td style="text-align:right;"> 9.66 </td>
+   <td style="text-align:right;"> 10.35 </td>
+   <td style="text-align:right;"> 12.98 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Carbón </td>
+   <td style="text-align:right;"> 1.64 </td>
+   <td style="text-align:right;"> 3.16 </td>
+   <td style="text-align:right;"> 0.83 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ciclo Combinado </td>
+   <td style="text-align:right;"> 14.87 </td>
+   <td style="text-align:right;"> 27.68 </td>
+   <td style="text-align:right;"> 15.69 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hidraúlica </td>
+   <td style="text-align:right;"> 51.66 </td>
+   <td style="text-align:right;"> 34.20 </td>
+   <td style="text-align:right;"> 36.52 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Importación Portugal </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.13 </td>
+   <td style="text-align:right;"> 0.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Nuclear </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.48 </td>
+   <td style="text-align:right;"> 1.46 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Renov., cog. y res </td>
+   <td style="text-align:right;"> 22.25 </td>
+   <td style="text-align:right;"> 24.57 </td>
+   <td style="text-align:right;"> 33.15 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="evolución-de-los-precios-spot" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> <strong>Evolución de los precios spot</strong></h1>
+<p>En es esta sección analizamos el comportamiento de los precios de electricidad en el mercado mayorista español. Utilizamos los datos publicados en <a href="https://www.esios.ree.es/">e.sios</a>. La frecuencia de los datos es horaria y diaria, y el período de análisis inicia en enero de 2014 y termina en mayo de 2023.</p>
+<section id="precios-horarios" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="precios-horarios"><span class="header-section-number">5.1</span> Precios horarios</h2>
+<p>Al descomponer la serie de tiempo de los precios horarios entre su tendencia, estacionalidad y componente aleatorio, encontramos como era de esperarse el comportamiento alcista de los datos durante el 2021 y 2022. En las estadísticas descriptivas vemos que la serie de precios tiene una curtosis mayor a tres, indicando que cumple con el hecho estilizado de los precios de electricidad de tener una distribución de colas pesas o con una gran cantidad de datos extremos, tanto en la cola derecha (precios altos) como en la cola izquierda (precios bajos). Además, la serie de precios presenta sesgo positivo, indicando que se concentran más datos hacia la derecha de la media de los precios que hacia la izquierda.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Descom%20precios%20hora-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 13px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Estadísticas descriptivas precios horarios</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Precios spot horarios </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mínimo </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Media </td>
+   <td style="text-align:right;"> 67.87 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Máximo </td>
+   <td style="text-align:right;"> 700.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D. Est </td>
+   <td style="text-align:right;"> 54.81 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sesgo </td>
+   <td style="text-align:right;"> 2.51 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curtosis </td>
+   <td style="text-align:right;"> 8.59 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>En el siguiente histograma de los precios se puede ver gráficamente las colas pesadas de la distribución de precios y su sesgo positivo.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Histograma%20precios-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="merit-order-effect-moe" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="merit-order-effect-moe"><span class="header-section-number">5.1.1</span> <em>Merit-order effect</em> (MOE)</h3>
+<p>Como una primera aproximación a la estimación del efecto de mérito (<em>merit order effect</em>) estimamos por mínimos cuadrados ordinarios la siguiente regresión:</p>
+<p><span class="math display">\[
+Precio_h = b_0+b_1Eolica_h+b_2PV_h+b_3Demanda_h+\epsilon_h
+\]</span></p>
+<p>donde <span class="math inline">\(Precio_h\)</span> es el precio spot en la hora <span class="math inline">\(h\)</span>, <span class="math inline">\(Eolica_h\)</span> es la generación eólica en la hora anterior <span class="math inline">\(h\)</span>, <span class="math inline">\(PV_h\)</span> es la generación solar fotovoltaica en <span class="math inline">\(h\)</span>, <span class="math inline">\(Demanda_h\)</span> es la demanda y <span class="math inline">\(\epsilon\)</span> son los errores.</p>
+<p>De esta manera, los betas <span class="math inline">\(b_1\)</span> y <span class="math inline">\(b_2\)</span> estiman en cuánto disminuyen los precios por cada megavatio hora adicional de electricidad generado con fuentes eólicas o fotovoltaicas, respectivamente.</p>
+<p>En la siguiente gráfica se presentan el comportamiento de <span class="math inline">\(b_1\)</span> y <span class="math inline">\(b_2\)</span> estimados utilizando una ventana móvil de un año <span class="math inline">\((k)\)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Tanto en el caso de la generación eólica como la fotovoltaica, el efecto marginal sobre los precios es negativo durante todo el período de análisis, indicando que por cada unidad adicional de generación con estas fuentes renovables, menores son los precios, pero el efecto es muy pequeño.</p>
+<p>El efecto de la generación eólica se hizo más grande (en valor absoluto) a finales de 2021, pero durante el 2022 el efecto se hizo pequeño y cercano a cero. Por el contrario, la generación fotovoltaica ha tenido un efecto reductor sobre el precio más alto relativo a la generación eólica la mayor parte del período, y tuvo un crecimiento del efecto más pronunciado en 2021 y 2022.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/MOE-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Adicionalmente, en la siguiente gráfica presentamos la evolución de la potencia mensual instalada de generación eólica y solar fotovoltaica.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Potencia-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="precios-diarios" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="precios-diarios"><span class="header-section-number">5.2</span> Precios diarios</h2>
+<p>La descomposición de la serie de la precios diaros y las estadísticas descriptivas exhiben un comportamiento muy similar al de los datos horarios. Por construcción, el máximo precio es menor al horario, pero se mantienen el comportamiento de colas pesadas y sesgo positivo de la distribución de precios.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Descom%20precios%20diarios-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 13px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Estadísticas descriptivas precios diarios</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Precios spot diarios </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mínimo </td>
+   <td style="text-align:right;"> 0.47 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Media </td>
+   <td style="text-align:right;"> 67.87 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Máximo </td>
+   <td style="text-align:right;"> 547.46 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Varianza </td>
+   <td style="text-align:right;"> 2,791.05 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D. Est </td>
+   <td style="text-align:right;"> 52.83 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sesgo </td>
+   <td style="text-align:right;"> 2.51 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curtosis </td>
+   <td style="text-align:right;"> 8.33 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<section id="prueba-de-quiebres-estructurales" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="prueba-de-quiebres-estructurales"><span class="header-section-number">5.2.1</span> <strong>Prueba de quiebres estructurales</strong></h3>
+<p>Utilizando la metodología de <span class="citation" data-cites="bai2003">(<a href="#ref-bai2003" role="doc-biblioref">Bai and Perron 2003</a>)</span> estimamos posibles cambios de régimen o quiebres estructurales en la serie de precios diarios. El modelo encuentra los siguientes cuatro regímenes:</p>
+<ul>
+<li><p>desde el inicio de la muestra en enero de 2014 hasta octubre de 2016</p></li>
+<li><p>octubre de 2016 hasta abril de 2019</p></li>
+<li><p>abril de 2019 a agosto de 2021</p></li>
+<li><p>agosto de 2021 hasta el final de la muestra en mayo de 2023</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Cambio%20estructural-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="modelación-de-la-media-y-volatilidad" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="modelación-de-la-media-y-volatilidad"><span class="header-section-number">5.2.2</span> <strong>Modelación de la media y volatilidad</strong></h3>
+<p>Realizamos también una modelación de la media y varianza de la serie para analizar la tendencia de la volatilidad de los precios diarios. Al igual que en el caso de la demanda, utilizamos un modelo SARIMA para modelar la media de los precios y tener en cuenta los componentes estacionales de la serie. En la siguiente gráfica se presenta en azul el pronóstico del modelo de los precios a 30 días.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/SARIMA%20precios-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Para la modelación de la volatilidad utilizamos un modelo GARCH (<em>Generalized Autoregressive Conditionally Heteroscedasticity</em>). En la siguiente gráfica se presenta la volatilidad estimada por el modelo, donde se puede apreciar el incremento de la volatilidad en los precios durante el 2021 y 2022.</p>
+<p>Además, estimamos posibles cambios de régimen o quiebres estructurales en la serie. El modelo encuentra los siguientes cuatro regímenes:</p>
+<ul>
+<li><p>desde el inicio de la muestra en enero de 2014 hasta junio de 2015</p></li>
+<li><p>junio de 2015 hasta mayo de 2020</p></li>
+<li><p>mayo de 2020 a octubre de 2021</p></li>
+<li><p>octubre de 2021 hasta el final de la muestra en mayo de 2023</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/varianza-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="modelación-de-los-precios-con-variables-explicativas-1" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="modelación-de-los-precios-con-variables-explicativas-1"><span class="header-section-number">5.2.3</span> <strong>Modelación de los precios con variables explicativas (1)</strong></h3>
+<p>Como una primera aproximación a un modelo explicativo del comportamiento de los precios, realizamos un modelo de regresión lineal tomando como variables explicativas la generación eólica, fotovoltaica, la demanda, los precios del gas natural y el carbón (EUA). La especificación del modelo es la siguiente:</p>
+<p><span class="math display">\[
+\begin{align}
+Precio_t= &amp; b_o+b_1Eolica_{t-1}+b_2PV_{t-1}+b_3Demanda_{t-1} \\
+&amp; + b_4Gas_{t-1}+b_5EUA_{t-1}+\epsilon_{t-1}
+\end{align}
+\]</span></p>
+<p>Las variables explicativas se rezagan un día para tener en cuenta el modo en el que se forman los precios al por mayor. Los precios del gas natural fueron extraídos de <a href="https://www.mibgas.es/es">MIBGAS</a> y los precios del carbono (European Union Allowances) de <a href="https://www.investing.com/commodities/carbon-emissions-historical-data">Investing</a>.</p>
+<p>A continuación se presentan los resultados de la regresión, donde se tiene una relación negativa entre la generación renovable y los precios, y positiva entre los precios del gas y carbono y los precios de la electricidad. Es importante tener en cuenta que estos resultados sólo se pueden interpretar como correlaciones parciales y no como efectos causales, pues existen sesgos debido a que la causalidad entre los precios y las variables explicativas puede ir en ambas direcciones.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                            PrecioSpot         
+-----------------------------------------------
+LEolica                     -0.0001***         
+                             (0.00001)         
+                                               
+LPV                         -0.0003***         
+                             (0.00004)         
+                                               
+LDemanda                     0.0001***         
+                             (0.00001)         
+                                               
+LGas                         1.056***          
+                              (0.032)          
+                                               
+LEUA                         0.940***          
+                              (0.054)          
+                                               
+Constant                      -5.263           
+                              (9.724)          
+                                               
+-----------------------------------------------
+Observations                   1,800           
+R2                             0.778           
+Adjusted R2                    0.778           
+Residual Std. Error     28.250 (df = 1794)     
+F Statistic         1,259.445*** (df = 5; 1794)
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+</section>
+<section id="modelación-de-los-precios-con-variables-explicativas-2" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="modelación-de-los-precios-con-variables-explicativas-2"><span class="header-section-number">5.2.4</span> <strong>Modelación de los precios con variables explicativas (2)</strong></h3>
+<p>Adicionalmente, estimamos un segundo modelo de regresión lineal con variables climáticas como variables explicativas, para evitar los sesgos de estimación del modelo anterior. Los datos de temperatura (grados celsius), velocidad del viento (metros por segundo) y precipitación (milímetros) son extraídos de Bloomberg, y los datos de irradiancia <span class="math inline">\((Wh/m^2)\)</span> de <a href="https://www.soda-pro.com/">SoDa Pro</a>. La especificación del modelo es la siguiente:</p>
+<p><span class="math display">\[
+\begin{align}
+Precio_t= &amp; b_o+b_1Temperatura_{t-1}+b_2Viento_{t-1}+b_3Precipitacion_{t-1} \\
+&amp; +b_4Irradiancia_{t-1}+b_5Gas_{t-1}+b_6EUA_{t-1}+\epsilon_{t-1}
+\end{align}
+\]</span></p>
+<p>El modelo encuentra una relación negativa entre la velocidad del viento y los precios, así como entre la radiación solar y los precios. Al igual que en el modelo anterior, los precios del gas y el carbono tienen una relación positiva con los precios.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+===============================================
+                        Dependent variable:    
+                    ---------------------------
+                            PrecioSpot         
+-----------------------------------------------
+LTemperatura                 -0.823***         
+                              (0.152)          
+                                               
+LViento                      -1.744***         
+                              (0.370)          
+                                               
+LPrecipitacion                -0.002           
+                              (0.002)          
+                                               
+LIrradiancia                 -0.001**          
+                             (0.0004)          
+                                               
+LGas                         1.095***          
+                              (0.030)          
+                                               
+LEUA                         0.753***          
+                              (0.041)          
+                                               
+Constant                     45.530***         
+                              (2.908)          
+                                               
+-----------------------------------------------
+Observations                   1,756           
+R2                             0.810           
+Adjusted R2                    0.810           
+Residual Std. Error     26.231 (df = 1749)     
+F Statistic         1,244.983*** (df = 6; 1749)
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+</div>
+<p>Dado que este modelo es lineal y se calcula para la medida de la distribución de precios, vale la pena explorar también modelos no lineales, como las regresiones cuantílicas, que estiman el efecto de las variables explicativas a lo largo de toda la distribución de precios, permitiendo así, por ejemplo, evaluar la relación del clima y los precios del gas natural con los precios de la electricidad cuando estos son muy bajos o muy altos.</p>
+<p>A continuación se presenta el resultado gráfico de esta estimación por cuantiles.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/quantreg-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="análisis-de-la-curva-de-pato" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> <strong>Análisis de la curva de pato</strong></h1>
+<p>En esta sección presentamos la curva de pato de los precios de electricidad siguiendo dos aproximaciones: la primera, presenta el perfil de demanda en las diferentes horas del día; y la segunda, presenta el comportamiento de los precios en las diferentes horas del día. Además, presentamos el perfil de consumo de las centrales de bombeo para analizar si éstas han cambiado su perfil de consumo en los últimos años de mayor penetración de generación renovable no gestionable.</p>
+<section id="curva-de-pato" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="curva-de-pato"><span class="header-section-number">6.1</span> <strong>Curva de pato</strong></h2>
+<p>En la siguiente gráfica interactiva presentamos la curva de pato para el perfil de demanda del sistema por horas y para los precios spot. La gráfica se puede filtrar por los años de la muestra, días laborales y no laborales, los días de la semana y las estaciones<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+ <title>Shiny App Iframe</title>  <iframe src="https://sbohorquez.shinyapps.io/CurvadePato/" style="border: none; width: 150%; height: 850px" frameborder="0"></iframe> 
+<section id="perfil-de-demanda" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="perfil-de-demanda"><span class="header-section-number">6.1.1</span> Perfil de demanda</h3>
+<p>El perfil de demanda va en la misma vía de lo encontrado en la <a href="#sec-1">Sección&nbsp;1</a>: en los últimos años la demanda ha sido menor para todas las horas del día. Este comportamiento se puede deber a:</p>
+<ul>
+<li><p>2020: efecto de la pandemia</p></li>
+<li><p>2021-2022: efecto de los precios elevados de la electricidad</p></li>
+<li><p>2020-2022: mayores niveles de autoconsumo <em>behind the meter</em> y mejores niveles de eficiencia energética.</p></li>
+</ul>
+</section>
+<section id="perfil-de-precios" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="perfil-de-precios"><span class="header-section-number">6.1.2</span> Perfil de precios</h3>
+<p>Los años 2021 y 2022 presentan los precios más altos para todas las horas del día. Aunque hasta mayo de 2023 todavía los precios no alcanzan los niveles previos a la crisis energética, éstos se caracterizan por tener una disminución más pronunciada entre las 7:00 y las 16:00 horas, indicando el efecto de la mayor generación con plantas fotovoltaicas.</p>
+</section>
+<section id="comportamiento-precios-bajos" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="comportamiento-precios-bajos"><span class="header-section-number">6.1.3</span> Comportamiento precios bajos</h3>
+<p>Dado que los años 2021 y 2022 son atípicos por los altos niveles de los precios spot, en la siguiente gráfica presentamos el porcentaje de veces que los precios estuvieron por debajo de 10 EUR/MWh a lo largo del día en el 2014, 2015, 2022 y 2023. De enero a mayo de 2023 se evidencia un comportamiento de un mayor porcentaje de precios bajos entre las 7:00 y las 16:00 horas, indicando el efecto de la mayor penetración de la generación fotovoltaica sobre los precios horarios.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/low%20price-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+
+</div>
+</section>
+</section>
+<section id="perfil-de-consumo-de-las-centrales-de-bombeo" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="perfil-de-consumo-de-las-centrales-de-bombeo"><span class="header-section-number">6.2</span> <strong>Perfil de consumo de las centrales de bombeo</strong></h2>
+<p>La siguiente gráfica interactiva presenta el perfil de consumo de las centrales de bombeo. El 2023, y en menor medida el 2022 y 2021 se caracterizan por un mayor consumo de estas centrales entre las 7:00 y las 16:00 horas.</p>
+<title>Shiny App Iframe</title>  <iframe src="https://sbohorquez.shinyapps.io/Bombeo/" style="border: none; width: 150%; height: 850px" frameborder="0"></iframe> 
+</section>
+</section>
+<section id="indicador-de-almacenamiento-o-arbitraje-entre-horas-pico-y-horas-valle" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> <strong>Indicador de almacenamiento o arbitraje entre horas pico y horas valle</strong></h1>
+<p>En este apartado calculamos dos indicadores de almacenamiento o arbitraje entre horas pico y horas valle. El primero es la diferencia por día entre el precio horario máximo y el mínimo. El segundo es la diferencia entre el promedio de los cuatro precios más altos del día y el promedio de los cuatro precios más bajos.</p>
+<p>Ambos indicadores tienen un comportamiento muy similar, indicando que el valor del almacenamiento se está incrementando. En el caso del primer indicador, por ejemplo, podemos ver que la diferencia entre el precio horario máximo y mínimo pasó de ser en promedio 30 EUR/MWh en 2014 a 83 EUR/MWh en 2023. Además, los máximos de los indicadores también se han incrementado en los últimos años de análisis.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Almacenamiento-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Estadísticas descriptivas indicador de almacenamiento entre precio máximo y mínimo</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> 2014 </th>
+   <th style="text-align:right;"> 2015 </th>
+   <th style="text-align:right;"> 2016 </th>
+   <th style="text-align:right;"> 2017 </th>
+   <th style="text-align:right;"> 2018 </th>
+   <th style="text-align:right;"> 2019 </th>
+   <th style="text-align:right;"> 2020 </th>
+   <th style="text-align:right;"> 2021 </th>
+   <th style="text-align:right;"> 2022 </th>
+   <th style="text-align:right;"> 2023 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mínimo </td>
+   <td style="text-align:right;"> 2.53 </td>
+   <td style="text-align:right;"> 7.76 </td>
+   <td style="text-align:right;"> 4.59 </td>
+   <td style="text-align:right;"> 4.19 </td>
+   <td style="text-align:right;"> 2.43 </td>
+   <td style="text-align:right;"> 2.70 </td>
+   <td style="text-align:right;"> 3.77 </td>
+   <td style="text-align:right;"> 1.80 </td>
+   <td style="text-align:right;"> 17.85 </td>
+   <td style="text-align:right;"> 16.85 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Media </td>
+   <td style="text-align:right;"> 29.72 </td>
+   <td style="text-align:right;"> 25.46 </td>
+   <td style="text-align:right;"> 19.47 </td>
+   <td style="text-align:right;"> 19.84 </td>
+   <td style="text-align:right;"> 18.78 </td>
+   <td style="text-align:right;"> 17.20 </td>
+   <td style="text-align:right;"> 17.25 </td>
+   <td style="text-align:right;"> 50.97 </td>
+   <td style="text-align:right;"> 95.81 </td>
+   <td style="text-align:right;"> 83.02 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Máximo </td>
+   <td style="text-align:right;"> 110.00 </td>
+   <td style="text-align:right;"> 65.15 </td>
+   <td style="text-align:right;"> 56.63 </td>
+   <td style="text-align:right;"> 70.24 </td>
+   <td style="text-align:right;"> 63.30 </td>
+   <td style="text-align:right;"> 55.23 </td>
+   <td style="text-align:right;"> 49.49 </td>
+   <td style="text-align:right;"> 248.98 </td>
+   <td style="text-align:right;"> 275.12 </td>
+   <td style="text-align:right;"> 177.81 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D. Est </td>
+   <td style="text-align:right;"> 16.33 </td>
+   <td style="text-align:right;"> 9.13 </td>
+   <td style="text-align:right;"> 8.66 </td>
+   <td style="text-align:right;"> 9.51 </td>
+   <td style="text-align:right;"> 9.41 </td>
+   <td style="text-align:right;"> 8.25 </td>
+   <td style="text-align:right;"> 7.10 </td>
+   <td style="text-align:right;"> 37.77 </td>
+   <td style="text-align:right;"> 43.73 </td>
+   <td style="text-align:right;"> 34.04 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sesgo </td>
+   <td style="text-align:right;"> 1.64 </td>
+   <td style="text-align:right;"> 0.98 </td>
+   <td style="text-align:right;"> 1.08 </td>
+   <td style="text-align:right;"> 1.08 </td>
+   <td style="text-align:right;"> 1.37 </td>
+   <td style="text-align:right;"> 1.16 </td>
+   <td style="text-align:right;"> 1.00 </td>
+   <td style="text-align:right;"> 2.00 </td>
+   <td style="text-align:right;"> 1.28 </td>
+   <td style="text-align:right;"> 0.50 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curtosis </td>
+   <td style="text-align:right;"> 3.39 </td>
+   <td style="text-align:right;"> 1.02 </td>
+   <td style="text-align:right;"> 1.72 </td>
+   <td style="text-align:right;"> 1.76 </td>
+   <td style="text-align:right;"> 3.40 </td>
+   <td style="text-align:right;"> 2.42 </td>
+   <td style="text-align:right;"> 1.55 </td>
+   <td style="text-align:right;"> 5.14 </td>
+   <td style="text-align:right;"> 2.10 </td>
+   <td style="text-align:right;"> -0.38 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Almacenamiento-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Estadísticas descriptivas indicador de almacenamiento  promedio 4 horas con precio máximo y 
+  4 horas con precio mínimo</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> 2014 </th>
+   <th style="text-align:right;"> 2015 </th>
+   <th style="text-align:right;"> 2016 </th>
+   <th style="text-align:right;"> 2017 </th>
+   <th style="text-align:right;"> 2018 </th>
+   <th style="text-align:right;"> 2019 </th>
+   <th style="text-align:right;"> 2020 </th>
+   <th style="text-align:right;"> 2021 </th>
+   <th style="text-align:right;"> 2022 </th>
+   <th style="text-align:right;"> 2023 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mínimo </td>
+   <td style="text-align:right;"> 2.26 </td>
+   <td style="text-align:right;"> 6.54 </td>
+   <td style="text-align:right;"> 3.44 </td>
+   <td style="text-align:right;"> 2.77 </td>
+   <td style="text-align:right;"> 2.19 </td>
+   <td style="text-align:right;"> 1.70 </td>
+   <td style="text-align:right;"> 2.75 </td>
+   <td style="text-align:right;"> 1.80 </td>
+   <td style="text-align:right;"> 12.46 </td>
+   <td style="text-align:right;"> 10.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Media </td>
+   <td style="text-align:right;"> 25.37 </td>
+   <td style="text-align:right;"> 22.12 </td>
+   <td style="text-align:right;"> 16.71 </td>
+   <td style="text-align:right;"> 17.42 </td>
+   <td style="text-align:right;"> 16.37 </td>
+   <td style="text-align:right;"> 14.80 </td>
+   <td style="text-align:right;"> 14.52 </td>
+   <td style="text-align:right;"> 43.04 </td>
+   <td style="text-align:right;"> 79.42 </td>
+   <td style="text-align:right;"> 70.73 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Máximo </td>
+   <td style="text-align:right;"> 94.47 </td>
+   <td style="text-align:right;"> 56.04 </td>
+   <td style="text-align:right;"> 53.96 </td>
+   <td style="text-align:right;"> 64.45 </td>
+   <td style="text-align:right;"> 57.20 </td>
+   <td style="text-align:right;"> 50.23 </td>
+   <td style="text-align:right;"> 48.62 </td>
+   <td style="text-align:right;"> 241.44 </td>
+   <td style="text-align:right;"> 257.84 </td>
+   <td style="text-align:right;"> 161.19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D. Est </td>
+   <td style="text-align:right;"> 14.33 </td>
+   <td style="text-align:right;"> 8.04 </td>
+   <td style="text-align:right;"> 7.78 </td>
+   <td style="text-align:right;"> 8.72 </td>
+   <td style="text-align:right;"> 8.49 </td>
+   <td style="text-align:right;"> 7.43 </td>
+   <td style="text-align:right;"> 6.41 </td>
+   <td style="text-align:right;"> 33.02 </td>
+   <td style="text-align:right;"> 36.82 </td>
+   <td style="text-align:right;"> 30.82 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sesgo </td>
+   <td style="text-align:right;"> 1.65 </td>
+   <td style="text-align:right;"> 0.91 </td>
+   <td style="text-align:right;"> 1.19 </td>
+   <td style="text-align:right;"> 1.11 </td>
+   <td style="text-align:right;"> 1.45 </td>
+   <td style="text-align:right;"> 1.15 </td>
+   <td style="text-align:right;"> 1.11 </td>
+   <td style="text-align:right;"> 2.17 </td>
+   <td style="text-align:right;"> 1.52 </td>
+   <td style="text-align:right;"> 0.57 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curtosis </td>
+   <td style="text-align:right;"> 3.80 </td>
+   <td style="text-align:right;"> 1.02 </td>
+   <td style="text-align:right;"> 2.47 </td>
+   <td style="text-align:right;"> 2.02 </td>
+   <td style="text-align:right;"> 4.03 </td>
+   <td style="text-align:right;"> 2.54 </td>
+   <td style="text-align:right;"> 2.55 </td>
+   <td style="text-align:right;"> 6.96 </td>
+   <td style="text-align:right;"> 3.47 </td>
+   <td style="text-align:right;"> -0.34 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Para hacer comparable el indicador en el tiempo, teniendo en cuenta la gran variabilidad de los precios spot, en la siguiente gráfica se presenta el indicador de la diferencia entre el precio máximo y mínimo divido entre el precio promedio diario.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Almacenamiento%20proporcional-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="correlación-entre-los-precios-del-gas-natural-y-de-la-electricidad" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> <strong>Correlación entre los precios del gas natural y de la electricidad</strong></h1>
+<p>En la siguiente gráfica presentamos la correlación entre los precios del gas natural y de la electricidad. La línea azul punteada corresponde a la fecha en la que se aprobó el Real Decreto-ley 10/2022, de 13 de mayo, decreto conocido como la “excepción ibérica” o el “tope al gas”.</p>
+<p>Previo a la medida, la correlación osciló entre 0.58 y 0.98, con un promedio de 0.82. Después de la medida, el promedio de la correlación fue de 0.62 y alcanzó un mínimo de 0.41.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Correlacion%20gas%20y%20electricidad-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="evolución-del-spark-spread" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> <strong>Evolución del “Spark Spread”</strong></h1>
+<p>En esta sección calculamos el “Spark Spread” de una planta de generación de energía eléctrica con gas natural. El “Spark Spread” o la rentabilidad teórica (margen bruto) diaria de la planta se calcula de la siguiente manera:</p>
+<p><span class="math display">\[
+Spark \: Spread_t = Precio \: electricidad_t - Coste\: variable_t
+\]</span></p>
+<p>donde el coste variable es igual a: <span class="math inline">\(Precio\:gas_{t}/Eficiencia \: del \: ciclo + 0.3*Precio \: carbono_{t}\)</span>. En este caso tomamos una eficiencia de 0.5.</p>
+<p>En la siguiente gráfica se presenta el “Spark Spread”, los precios de electricidad y los precios del gas natural. Además, se presentan las respectivas estadísticas descriptivas. El “Spark Spread” en promedio ha sido negativo, con un valor de -2.37 EUR/MWh, llegando a un minímo de casi -300 EUR/MWh en el 2022.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/SS-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Estadísticas descriptivas precios electricidad, precios del gas, precios del carbono y spark spread</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Precio Electricidad </th>
+   <th style="text-align:right;"> Precio Gas </th>
+   <th style="text-align:right;"> EUA </th>
+   <th style="text-align:right;"> Spark Spread </th>
+   <th style="text-align:right;"> Coste Variable </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mínimo </td>
+   <td style="text-align:right;"> 5.08 </td>
+   <td style="text-align:right;"> 4.60 </td>
+   <td style="text-align:right;"> 3.93 </td>
+   <td style="text-align:right;"> -298.47 </td>
+   <td style="text-align:right;"> 15.86 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Media </td>
+   <td style="text-align:right;"> 77.00 </td>
+   <td style="text-align:right;"> 34.59 </td>
+   <td style="text-align:right;"> 33.98 </td>
+   <td style="text-align:right;"> -2.37 </td>
+   <td style="text-align:right;"> 79.37 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Máximo </td>
+   <td style="text-align:right;"> 547.46 </td>
+   <td style="text-align:right;"> 225.03 </td>
+   <td style="text-align:right;"> 98.01 </td>
+   <td style="text-align:right;"> 78.14 </td>
+   <td style="text-align:right;"> 476.06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D. Est </td>
+   <td style="text-align:right;"> 59.03 </td>
+   <td style="text-align:right;"> 34.34 </td>
+   <td style="text-align:right;"> 28.66 </td>
+   <td style="text-align:right;"> 38.08 </td>
+   <td style="text-align:right;"> 75.26 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sesgo </td>
+   <td style="text-align:right;"> 2.20 </td>
+   <td style="text-align:right;"> 2.24 </td>
+   <td style="text-align:right;"> 0.83 </td>
+   <td style="text-align:right;"> -3.80 </td>
+   <td style="text-align:right;"> 2.07 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curtosis </td>
+   <td style="text-align:right;"> 6.36 </td>
+   <td style="text-align:right;"> 5.43 </td>
+   <td style="text-align:right;"> -0.70 </td>
+   <td style="text-align:right;"> 16.71 </td>
+   <td style="text-align:right;"> 4.35 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>En el histograma se puede evidenciar el sesgo negativo de la serie del “Spark Spread”, donde se tienen más datos a la izquierda de la media de la distribución que a la derecha. Además, la mayoría de los días este margen estuvo alrededor de los 0 EUR/MWh.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/SS%20histo-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Por último, presentamos en la siguiente gráfica la descomposición de la serie del “Spark Spread” en su componente tendencial, estacional y aleatorio.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/SS%20descomp-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="relación-entre-el-precio-spot-diario-y-los-servicios-complementarios" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> <strong>Relación entre el precio spot diario y los servicios complementarios</strong></h1>
+<p>En esta sección analizamos la evolución de los precios en el mercado intradiario y su correlación con el precio spot diario. Además, analizamos el coste de los servicios de ajuste y su relación con el precio final de la energía.</p>
+<section id="mercado-spot-intradiario" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="mercado-spot-intradiario"><span class="header-section-number">10.1</span> Mercado spot intradiario</h2>
+<p>A continuación presentamos el total de energía asignada en el mercado spot intradiario y el porcentaje de la energía asignada en la sesión 1. Del 2014 al 2020, la energía asignada en la sesión 1 correspondió alrededor del 40-60% de la energía total asignada en el mercado intradiario. A partir del 2020, la ratio cambió, situándose la mayor parte del tiempo entre el 20 y el 40%. Además, en estos últimos años se presentan mayores picos o porcentajes más altos que el promedio.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Vol%20intra-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Vol%20intra-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Dado que en la sesión 1 del mercado spot intradiario se asigna un porcentaje importante de la energía total asignada en el mercado intradiario, analizamos el comportamiento de los precios de esta sesión. A continuación presentamos las estadísticas descriptivas de los precios horarios del mercado spot diario y del mercado spot intradiario de la sesión 1, así como sus respectivas gráficas. El comportamiento de los dos precios es muy similar durante todo el período de análisis.</p>
+<p>Adicionalmente, presentamos la correlación entre los dos precios. La correlación es bastante elevada, oscilando entre 0.95 y 1, con valores más cercanos a uno en los últimos años.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 13px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Estadísticas descriptivas precio spot diario e intradiario</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> Precio spot diairio </th>
+   <th style="text-align:right;"> Precio spot intradiario S1 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Mínimo </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> -23.50 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Media </td>
+   <td style="text-align:right;"> 67.87 </td>
+   <td style="text-align:right;"> 67.39 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Máximo </td>
+   <td style="text-align:right;"> 700.00 </td>
+   <td style="text-align:right;"> 750.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D. Est </td>
+   <td style="text-align:right;"> 54.81 </td>
+   <td style="text-align:right;"> 54.60 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Sesgo </td>
+   <td style="text-align:right;"> 2.51 </td>
+   <td style="text-align:right;"> 2.53 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Curtosis </td>
+   <td style="text-align:right;"> 8.59 </td>
+   <td style="text-align:right;"> 8.93 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Precios%20intra-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Precios%20intra-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Precios%20intra-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="coste-de-los-servicios-de-ajuste" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="coste-de-los-servicios-de-ajuste"><span class="header-section-number">10.2</span> Coste de los servicios de ajuste</h2>
+<p>Tomando los datos de <a href="https://www.ree.es/es/datos/mercados/componentes-precio-energia-cierre-desglose">REE</a> graficamos la evolución de los costes de servicio de ajuste mensuales desde 2014 hasta agosto de 2023. Además, presentamos el porcentaje de estos costes del total del precio de cierre de la energía.</p>
+<p>Los costes de servicios de ajuste están compuestos por:</p>
+<ul>
+<li><p>Restricciones técnicas PDBF</p></li>
+<li><p>Banda de regulación secundaria</p></li>
+<li><p>Restricciones técnicas en tiempo real</p></li>
+<li><p>Incumplimiento de energía de balance</p></li>
+<li><p>Coste de desvíos</p></li>
+<li><p>Saldo desvíos</p></li>
+<li><p>Control de factor de potencia</p></li>
+<li><p>Saldo PO 14.6</p></li>
+</ul>
+<p>El coste de los servicios de ajuste ha oscilado entre 0.8 y 13.2 EUR/MWh, con un promedio de 4.1 EUR/MWh. Desde el 2020, este rubro ha tenido un comportamiento al alza, alcanzando el máximo de la serie en enero de 2023.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Desvios-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>En cuanto al porcentaje del coste de los servicios de ajuste sobre el precio total, éste ha estado entre el 1.4% y el 23.4%, con un promedio del 6%. El máximo porcentaje se presentó en febrero de 2014, y los siguientes porcentajes más altos en abril 2020 y en enero de 2023. En la gráfica también se presenta el porcentaje con respecto al promedio del precio anual para tener una medida estandarizada del precio. En este caso se mantienen las fechas de los máximos pero con unos picos más atenuados.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Desvios%202-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Adicionalmente, en la siguiente gráfica se muestra el porcentaje que representan las restricciones técnicas en el Programa Diario Base de Funcionamiento (PDBF) del total del coste de los servicios de ajuste. Este servicio de ajuste representa una gran parte del total de costes de ajuste, representando entre el 50 y el 80% del total en el período 2014 a 2021. Después del 2021, este porcentaje ha bajado, situándose en los primeros meses de 2023 alrededor del 40%.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="DME_oct_files/figure-html/Desvios2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-bai2003" class="csl-entry" role="doc-biblioentry">
+Bai, Jushan, and Pierre Perron. 2003. <span>“Computation and Analysis of Multiple Structural Change Models.”</span> <em>Journal of Applied Econometrics</em> 18 (1): 1–22. https://doi.org/<a href="https://doi.org/10.1002/jae.659">https://doi.org/10.1002/jae.659</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>La primera ventana móvil contiene datos desde la primera hora del primer día de análisis hasta la última hora del primer año, es decir, del dato <span class="math inline">\(1\)</span> hasta el <span class="math inline">\(k\)</span>. La segunda ventana móvil tiene observaciones desde el dato <span class="math inline">\(2\)</span> hasta el <span class="math inline">\(k+1\)</span>, y así sucesivamente.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>El otoño se toma hasta el 31 de diciembre y el invierno inicia el 1 de enero.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
